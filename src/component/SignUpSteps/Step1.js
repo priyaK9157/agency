@@ -1,24 +1,75 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useState } from 'react'
 
 const Step1 = () => {
+   
+  const[set,setState]=useState({
+    Name:'',
+    CompanyEmail:'',
+    Otp:'',
+    PhoneNumber:'',
+    Designation:'',
+    Password:'',
+  })
+  function sendOtp(){
+         try{
+              const response=axios.post("https://agencyapi.getmentore.com/agent/auth/send-email",{
+                 CompanyEmail
+              })
+
+              if(response){
+                 console.log("res",response);
+              }
+         } catch(error){
+              console.log("error",error.message)
+         }
+  }
+   
+  const{username,CompanyEmail,Otp,PhoneNumber,Designation,Password}=set;
+
+  
+  
   return (
     <div>
         <h1 className="text-black bg-opacity-70 font-roboto text-24 font-medium leading-normal mt-4 ml-14">Echio</h1>
-        <p className='mt-2 ml-14'>Sign Up</p>
-        <p className=' text-slate-600 mt- ml-14'>to access Echio Home</p>
+        <p className='mt-1 ml-14'>Sign Up</p>
+        <p className=' text-slate-600 mt- ml-14 mb-2'>to access Echio Home</p>
 
         {/*company name and company email*/}
         <div className=' ml-14'>
          <fieldset className='flex flex-col items-start gap-3 self-stretch '>
             <legend>Name</legend>
-            <input placeholder='Nike' className='h-[40px] w-[30rem] border border-slate-300 pl-2 outline-none' />
+            <input placeholder='Nike' value={username} onChange={(event)=>{
+              setState({
+                ...set,
+                username:event.target.value
+              })
+            }} className='h-[40px] w-[30rem] border border-slate-300 pl-2 outline-none' />
          </fieldset>
 
               <br></br>
-              <fieldset className='flex flex-col items-start gap-3 self-stretch '>
-                <legend>Company Email</legend>
-                <input placeholder='support@echio.in' className='h-[40px] w-[30rem] border border-slate-300 pl-2  outline-none' />
-            </fieldset>
+             <div className=' flex gap-4'>
+                <fieldset >
+                    <legend>Company Email</legend>
+                    <input placeholder='support@echio.in'  value={CompanyEmail} onChange={(event)=>{
+                      setState({
+                        ...set,
+                        CompanyEmail:event.target.value
+                      })
+                    }}  className='h-[40px] w-[15rem] border border-slate-300 pl-2  outline-none' />
+                </fieldset>
+
+                <fieldset>
+                        <legend>OTP</legend>
+                        <input placeholder='OTP'  value={Otp} onChange={(event)=>{
+                          setState({
+                            ...set,
+                            Otp:event.target.value
+                          })
+                        }}  className=' border border-slate-300 w-[8rem] h-[40px] pl-2 rounded-xl outline-none'/>
+                        <button type="button" onClick={sendOtp} className="  ml-7 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Send Otp</button>
+                </fieldset>
+             </div>
               <br></br>
      
 
@@ -26,7 +77,7 @@ const Step1 = () => {
     
              <fieldset className='flex flex-col items-start gap-3 self-stretch '>
                 <legend>Phone Number</legend>
-                <input placeholder='+91 XXXXXXXXXX' className='h-[40px] w-[30rem] border border-slate-300 pl-2  outline-none' />
+                <input placeholder='+91 XXXXXXXXXX' className='h-[40px] w-[30rem] border border-slate-300 pl-2  outline-none rounded-lg' />
             </fieldset>
             <br></br>
             <fieldset className='flex flex-col items-start gap-3 self-stretch '>
@@ -38,9 +89,17 @@ const Step1 = () => {
 
         {/*password ans confim pasword*/}
          <div className=' flex gap-5'>
-           <input type=' password' placeholder='Password' className='h-[40px]  border-2  border-pink-900 rounded-lg pl-2  outline-none'/>
-            <br></br>
-            <input type='password' placeholder=' Confirm Password' className='h-[40px]  border-2  border-pink-900 rounded-lg  pl-2  outline-none'/>
+          <fieldset>
+          <legend>Password</legend>
+              <input type=' password' placeholder='Password' value={Password} onChange={(event)=>{
+                              setState({
+                                ...set,
+                                Password:event.target.value
+                              })
+                            }}   className='h-[40px]  rounded-lg pl-2  outline-none'/>
+                <br></br>
+          </fieldset>
+            {/* <input type='password' placeholder=' Confirm Password' className='h-[40px]  border-2  border-pink-900 rounded-lg  pl-2  outline-none'/> */}
          </div>
        </div>
 
