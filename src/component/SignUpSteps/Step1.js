@@ -37,13 +37,13 @@ const Step1 = () => {
             password:Password,
              name:username,
              "agency": {
-              "name": "string",
-              "logo": "string",
-              "description": "string",
-              "website": "string",
+              "name": "",
+              "logo": "",
+              "description": "",
+              "website": "",
               "category": "Finance and Investment",
-              "gst": "string",
-              "pan": "string"
+              "gst": "",
+              "pan": ""
             },
            })
       } catch(error){
