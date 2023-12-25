@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 const Step1 = () => {
    
   const[set,setState]=useState({
-    Name:'',
+    username:'',
     CompanyEmail:'',
     Otp:'',
     PhoneNumber:'',
@@ -12,9 +12,10 @@ const Step1 = () => {
     Password:'',
   })
   function sendOtp(){
+        console.log("company email",CompanyEmail)
          try{
               const response=axios.post("https://agencyapi.getmentore.com/agent/auth/send-email",{
-                 CompanyEmail
+                 email:CompanyEmail
               })
 
               if(response){
@@ -25,6 +26,30 @@ const Step1 = () => {
          }
   }
    
+ async function signUp(){
+      try{
+        const types=Otp.toString();
+         const typesss=typeof types
+       
+           const  response=await axios.post("https://agencyapi.getmentore.com/agent/auth/signup",{
+            otp:typesss,
+            email:CompanyEmail,
+            password:Password,
+             name:username,
+             "agency": {
+              "name": "string",
+              "logo": "string",
+              "description": "string",
+              "website": "string",
+              "category": "Finance and Investment",
+              "gst": "string",
+              "pan": "string"
+            },
+           })
+      } catch(error){
+          console.log("error",error.message)
+      }
+  }
   const{username,CompanyEmail,Otp,PhoneNumber,Designation,Password}=set;
 
   
@@ -104,7 +129,7 @@ const Step1 = () => {
        </div>
 
         {/*finish*/}
-        <button  type="button" className="  mt-9 ml-12 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">finish</button>
+        <button onClick={signUp}  type="button" className="  mt-9 ml-12 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">finish</button>
     </div>
   )
 }
