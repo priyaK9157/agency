@@ -4,6 +4,7 @@ import {FaInstagram,FaYoutube} from "react-icons/fa"
 import image1 from "../../Assets/no-document-or-data-found-ui-illustration-design-free-vector.jpg"
 import Shortlishted from './TABS/Shortlishted';
 import Reachedout from './TABS/Reachedout';
+import Navbar from '../common/Navbar';
 
 const InfluencerDetail = () => {
 
@@ -47,8 +48,9 @@ const InfluencerDetail = () => {
        getShortlishtedInf();
     })
   return (
-    <div className=' mt-10 '>
-       <div className=' flex justify-around '>
+    <div >
+    <Navbar/>
+       <div className=' flex justify-around mt-10 '>
             <h1 className="text-Light-Text-Primary font-roboto text-3xl font-semibold leading-[123.5%] tracking-[0.25px]">Influencer Plan</h1>
              <input placeholder='search' className='h-[40px] w-[30rem] border border-slate-300 pl-2  outline-none'  />
               <button  type="button" className="  rounded-xl ml-12 text-white bg-[#6B8DE6]  focus:ring-4 focus:ring-blue-300 font-medium  text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">

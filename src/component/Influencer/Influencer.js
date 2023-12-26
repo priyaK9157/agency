@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import image1 from "../../Assets/49e58d5922019b8ec4642a2e2b9291c2.png"
 import {FaInstagram,FaYoutube} from "react-icons/fa"
+import Navbar from '../common/Navbar'
 const Influencer = () => {
    
     const token = localStorage.getItem('Token');
@@ -62,8 +63,9 @@ const Influencer = () => {
       ];
     
   return (
-    <div className=' mt-10'>
-        <div className=' flex justify-around'>
+    <div >
+        <Navbar/>
+        <div className=' flex justify-around mt-10'>
               <p className=' text-2xl text-black  font-bold'>Influencer Plan</p>
               <input placeholder='search' className='h-[40px] w-[30rem] border border-slate-300 pl-2  outline-none'  />
               <button  type="button" className="  rounded-xl ml-12 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium  text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
