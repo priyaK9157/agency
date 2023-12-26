@@ -2,27 +2,45 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import {FaInstagram,FaYoutube} from "react-icons/fa"
 import image1 from "../../Assets/no-document-or-data-found-ui-illustration-design-free-vector.jpg"
+import Shortlishted from './TABS/Shortlishted';
+import Reachedout from './TABS/Reachedout';
 
 const InfluencerDetail = () => {
 
     const[clickout,setClickout]=useState(0);
-    const[data,setData]=useState();
+    const[shortlisted,setShortlisted]=useState();
+    const[reachedOut,SetReachedOut]=useState()
     const token = localStorage.getItem('Token');
-
+    
    async  function getShortlishtedInf(){
        try{
-            const response=await axios.post("https://agencyapi.getmentore.com /groups/list",{}, {
+            const response=await axios.post("https://agencyapi.getmentore.com/responses/shortlist",{}, {
                headers: {
                  Authorization: `Bearer ${token}`,
                },})
 
                if(response){
-                    setData(response.data);
+                    setShortlisted(response.data);
                }
        } catch(error){
            console.log("error",error.message)
        }
     }
+    
+    async  function GetReachedOut(){
+     try{
+          const response=await axios.post("https://agencyapi.getmentore.com/responses/reach-out",{}, {
+             headers: {
+               Authorization: `Bearer ${token}`,
+             },})
+
+             if(response){
+               SetReachedOut(response.data);
+             }
+     } catch(error){
+         console.log("error",error.message)
+     }
+  }
 
     useEffect(()=>{
        getShortlishtedInf();
@@ -66,8 +84,12 @@ const InfluencerDetail = () => {
 
        {/*tabs*/}
        <div className=' mt-10 flex gap-8 bg-[#6B8DE6] bg-opacity-20 p-1 px-2 rounded-md w-9/12 mx-auto'>
-            <p  className=' ml-8 text-[#6B8DE6]'>Shortlisted Influencers </p>
-            <p className='text-[#6B8DE6]'>Reached Out INFLUENCERS</p>
+            <p  className=' ml-8 text-[#6B8DE6] cursor-pointer' onClick={()=>{
+                setClickout(0);
+            }}>Shortlisted Influencers </p>
+            <p className='text-[#6B8DE6] cursor-pointer' onClick={()=>{
+                setClickout(1);
+            }}>Reached Out INFLUENCERS</p>
        </div>
 
        {/*details influencer shortlisted*/}
@@ -83,20 +105,10 @@ const InfluencerDetail = () => {
                {/*lower level*/}
                <div>
                     {
-                          data ? (
-                               <div>
-                                    {
-                                         data?.map((data,index)=>{
-                                              return <div key={index}>
-                                                       <p>{data}</p>
-                                              </div>
-                                         })
-                                    }
-                               </div>
+                          clickout === 0 ? (
+                               <Shortlishted data={shortlisted}/>
                           ) : (
-                               <div className=' flex justify-center'>
-                                     <img src={image1} width="300px" />
-                               </div>
+                              <Reachedout data={reachedOut}/>
                           )
                     }
                </div>
