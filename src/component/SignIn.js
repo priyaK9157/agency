@@ -5,18 +5,29 @@ import signlogoImage from '../asset/signlogo.png';
 import GoogleIcon from '../asset/Google.png';
 import AppleIcon from '../asset/Apple.png';
 import officeIcon from '../asset/office.png';
+import { useNavigate } from 'react-router-dom';
 
 const SignIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleSignIn = () => {
-    axios.post('https://agencyapi.getmentore.com/api/signin', { email, password })
+    // Check if email and password are provided
+    if (!email || !password) {
+      console.error('Email and password are required');
+      return;
+    }
+
+    console.log(typeof(email));
+
+    axios.post("https://agencyapi.getmentore.com/agent/auth/login", { email, password })
       .then(response => {
         console.log('Backend response:', response.data);
+        navigate('/home');
       })
       .catch(error => {
-        console.error('Error:', error);
+        console.error('Error:', error.message);
       });
   };
 
