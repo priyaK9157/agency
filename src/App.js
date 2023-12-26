@@ -4,7 +4,8 @@ import SignIn from './component/SignIn';
 import SignUp from './component/SignUp';
 import Home from './component/Home';
 import Influencer from './component/Influencer/Influencer';
-import CampaignList from './component/CampaignList';
+import CampaignList from './component/Campaign/CampaignList';
+import InfluencerDetail from './component/Influencer/InfluencerDetail';
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
         <Route path="/home" element={<Home/>} />
         <Route path='/influencerPlan' element={<Influencer/>}/>
         <Route path='/CampaignList' element={<CampaignList/>}/>
+        <Route path='/influencerDetail' element={<InfluencerDetail/>}/>
       </Routes>
     
   );

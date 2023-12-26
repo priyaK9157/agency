@@ -1,12 +1,47 @@
 import React from 'react'
 import { IoMdHome } from "react-icons/io";
 import { MdFactCheck } from "react-icons/md";
-import signlogo from '../asset/signlogo.png'
+import signlogo from '../../asset/signlogo.png'
 import { IoLogoWechat } from "react-icons/io5";
 import { TbBellRinging2Filled } from "react-icons/tb";
 import { FaUserCircle } from "react-icons/fa";
 import { FaMagnifyingGlass } from "react-icons/fa6";
-import Frame50 from '../asset/Frame50.png'
+import Frame50 from '../../asset/Frame50.png'
+import { FaInstagram } from "react-icons/fa6";
+import { FaYoutube } from "react-icons/fa6";
+
+const data = [
+    {
+      img : Frame50,
+      name: "Dettols",
+      description:
+        "Lorem ipsum dolor sit amet consectetur. Pellentesque viverra sed sed sit. Blandit lacus malesuada eu eleifend cras enim nunc mattis sit sollicitudin a.",
+      analysis : "ANALYSIS",
+      report : "VIEW DETAILS",
+      instagram : "Instagram",
+      youtube : "YouTube"
+    },
+    {
+        img : Frame50,
+        name: "Dettols",
+        description:
+        "Lorem ipsum dolor sit amet consectetur. Pellentesque viverra sed sed sit. Blandit lacus malesuada eu eleifend cras enim nunc mattis sit sollicitudin a.",
+        analysis : "ANALYSIS",
+        report : "VIEW DETAILS",
+        instagram : "Instagram",
+        youtube : "YouTube"
+    },
+    {
+        img : Frame50,
+        name: "Dettols",
+        description:
+        "Lorem ipsum dolor sit amet consectetur. Pellentesque viverra sed sed sit. Blandit lacus malesuada eu eleifend cras enim nunc mattis sit sollicitudin a.",
+        analysis : "ANALYSIS",
+        report : "VIEW DETAILS",
+        instagram : "Instagram",
+        youtube : "YouTube"
+    },
+  ];
 
 const CampaignList = () => {
   return (
@@ -38,7 +73,7 @@ const CampaignList = () => {
                 </div>
             </div>
 
-            <div className='flex justify-around gap-8 p-16'>
+            <div className='flex justify-around gap-8 p-8'>
                 <div>
                     <div className="flex flex-col space-y-2">
                         <label className="font-bold text-lg">Campaign Status</label>
@@ -92,7 +127,7 @@ const CampaignList = () => {
                             />
                         </fieldset>
                         
-                        <div className='flex flex-col space-y-2'>
+                        <div className='flex flex-col space-y-2 p-2'>
                             <div className='flex items-center space-x-2'>
                                 <input type='checkbox' id='autos' />
                                 <label htmlFor='autos'>Autos & Vehicles</label>
@@ -113,42 +148,26 @@ const CampaignList = () => {
 
                 <div className='border flex flex-col gap-4'>
                     <div className='flex gap-4'>
-                        <div><img src={Frame50}></img></div>
-                        <div>
-                            <h1>Dettol</h1>
-                            <p>Lorem ipsum dolor sit amet consectetur. Pellentesque viverra sed sed sit. Blandit lacus malesuada eu eleifend cras enim nunc mattis sit sollicitudin a.</p>
-                            <button>Instagram</button>
-                            <button>YouTube</button>
-                        </div>
-                        <div>
-                            <button>ANALYSIS</button>
-                            <button>VIEW DETAILS</button>
-                        </div>
-                    </div>
-                    <div className='flex gap-4'>
-                        <div><img src={Frame50}></img></div>
-                        <div>
-                            <h1>Dettol</h1>
-                            <p>Lorem ipsum dolor sit amet consectetur. Pellentesque viverra sed sed sit. Blandit lacus malesuada eu eleifend cras enim nunc mattis sit sollicitudin a.</p>
-                            <button>Instagram</button>
-                            <button>YouTube</button>
-                        </div>
-                        <div>
-                            <button>ANALYSIS</button>
-                            <button>VIEW DETAILS</button>
-                        </div>
-                    </div>
-                    <div className='flex gap-4'>
-                        <div><img src={Frame50}></img></div>
-                        <div>
-                            <h1>Dettol</h1>
-                            <p>Lorem ipsum dolor sit amet consectetur. Pellentesque viverra sed sed sit. Blandit lacus malesuada eu eleifend cras enim nunc mattis sit sollicitudin a.</p>
-                            <button>Instagram</button>
-                            <button>YouTube</button>
-                        </div>
-                        <div>
-                            <button>ANALYSIS</button>
-                            <button>VIEW DETAILS</button>
+                        <div className='flex flex-col'>
+                            {data?.map((data, index) => (
+                                <div key={index} className='flex gap-4 shadow-md p-2'>
+                                    <div className='p-2 flex items-center'><img src={data.img} alt="Frame50" className='w-[250px]'/></div>
+                                    <div className='flex gap-2 flex-col p-2'>
+                                        <p className='text-2xl font-bold text-black'>{data.name}</p>
+                                        <p>{data.description}</p>
+                                        <div className='flex justify-between'>
+                                            <div className='flex gap-4'>
+                                                <button className='flex items-center bg-[#6B8DE6] bg-opacity-20 gap-2 rounded-lg p-2'><FaInstagram className=' text-2xl text-[#d84800]'/>{data.instagram}</button>
+                                                <button className='flex items-center gap-2 bg-[#6B8DE6] p-2 bg-opacity-20 rounded-lg'><FaYoutube className='text-2xl text-[#FF0000]'/>{data.youtube}</button>
+                                            </div>
+                                            <div className='flex gap-4'>
+                                                <button className='text-[#6B8DE6] '>{data.analysis}</button>
+                                                <button className='bg-[#6B8DE6] rounded-lg p-2'>{data.report}</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </div>
