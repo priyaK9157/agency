@@ -46,6 +46,7 @@ const InfluencerDetail = () => {
 
     useEffect(()=>{
        getShortlishtedInf();
+       GetReachedOut();
     })
   return (
     <div >

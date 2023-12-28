@@ -11,6 +11,7 @@ import { FaInstagram } from "react-icons/fa6";
 import { FaYoutube } from "react-icons/fa6";
 import { useDispatch } from 'react-redux';
 import { setImage, setName, setpara } from '../../redux/slices/Campaign';
+import { useNavigate } from 'react-router-dom';
 
 const data = [
     {
@@ -48,7 +49,7 @@ const data = [
 const CampaignList = () => {
 
     const dispatch=useDispatch();
-
+    const navigate=useNavigate();
   return (
     <div>
         <div className=''>
@@ -159,6 +160,7 @@ const CampaignList = () => {
                                      dispatch(setName(data.name))
                                      dispatch(setpara(data.description))
                                      dispatch(setImage(data.img))
+                                     navigate('/campaignDetail')
                                 }}>
                                     <div className='p-2 flex items-center'><img src={data.img} alt="Frame50" className='w-[250px]'/></div>
                                     <div className='flex gap-2 flex-col p-2'>

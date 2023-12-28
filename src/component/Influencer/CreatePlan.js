@@ -41,22 +41,32 @@ const CreatePlan = () => {
     })
   };
   const{name,description,language,platforms,category}=set;
-   console.log("data",name,description,language,platforms,category)
-   const token=localStorage.getItem('Token')
+  console.log("data",name,description,language,platforms,category);
+  const token=localStorage.getItem('Token')
+
    async function handlesubmit(){
      try{
          const response=await axios.post("https://agencyapi.getmentore.com/groups/create",{
-             name,
-             description,
-             category,
-             language,
-             platforms
+             "name":name,
+             "description":description,
+             "category":category,
+           
+            "language": [
+                language
+              ],
+              "platforms": [
+                platforms
+              ]
          },{
             headers: {
-                Authorization: `Bearer ${token}`, 
+                Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ODkyYjU5NDYwYjkyODZkMTc3N2M1OCIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTcwMzQ4ODM2OH0.xu5k8Jc9TKkrRrr4vcQbtdZK1HwI2MGVmT783zZPELM`, 
      }})
-     } catch(error){
 
+    
+        console.log("res",response);
+     
+     } catch(error){
+           console.log("error",error.message)
      }
    }
   return (
@@ -108,8 +118,8 @@ const CreatePlan = () => {
                         
                     <p className=' text-slate-600'>Plan Category</p>
                         <div className=' mt-2'>
-                            <input type="checkbox" id="" name="Autos"  checked={selectedCheckbox === 'Autos'}
-                                onChange={() => handleCheckboxChange('Autos')} />
+                            <input type="checkbox" id="" name="Autos"  checked={selectedCheckbox === 'Autos & Vehicles'}
+                                onChange={() => handleCheckboxChange('Autos & Vehicles')} />
                             <label for="Autos">Autos & Vehicles</label>
                         </div>
 
