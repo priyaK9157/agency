@@ -1,16 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-
 const initialState={
     names:null,
     para:null,
     img:null
 }
 
-
-
 const campaign=createSlice({
-    name:"campaign",
+    name:"campaigns",
     initialState:initialState,
     reducers:{
         setName(state,value){

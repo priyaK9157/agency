@@ -9,6 +9,8 @@ import { FaMagnifyingGlass } from "react-icons/fa6";
 import Frame50 from '../../asset/Frame50.png'
 import { FaInstagram } from "react-icons/fa6";
 import { FaYoutube } from "react-icons/fa6";
+import { useNavigate } from 'react-router-dom';
+// import CampaignDetail from '../Campaign/CampaignDetail'
 import { useDispatch } from 'react-redux';
 import { setImage, setName, setpara } from '../../redux/slices/Campaign';
 import { useNavigate } from 'react-router-dom';
@@ -47,6 +49,13 @@ const data = [
   ];
 
 const CampaignList = () => {
+    const navigate = useNavigate();
+
+
+    const navigateToCampaignDetail = (name, description, image) => {
+      // Use history.push to navigate to the campaign detail page
+      navigate(`/campaignDetail`,  { state: { name, description, image } });
+    };
 
     const dispatch=useDispatch();
     const navigate=useNavigate();
@@ -75,7 +84,7 @@ const CampaignList = () => {
                 </div>
                 <div className='flex gap-3'>
                     <button className='bg-[#6B8DE6] text-white rounded-lg p-2'>PAYMENT RECORD</button>
-                    <button className='bg-[#0288D1] text-white rounded-lg p-2'>CREATE CAMPAIGN</button>
+                    <button className='bg-[#0288D1] text-white rounded-lg p-2'onClick={()=>navigate('/Createcampaign')}>CREATE CAMPAIGN</button>
                 </div>
             </div>
 
@@ -173,7 +182,7 @@ const CampaignList = () => {
                                             </div>
                                             <div className='flex gap-4'>
                                                 <button className='text-[#6B8DE6] '>{data.analysis}</button>
-                                                <button className='bg-[#6B8DE6] rounded-lg p-2'>{data.report}</button>
+                                                <button className='bg-[#6B8DE6] rounded-lg p-2'onClick={()=>navigateToCampaignDetail(data.name, data.description, data.image)}>{data.report}</button>
                                             </div>
                                         </div>
                                     </div>
