@@ -9,6 +9,8 @@ import { FaMagnifyingGlass } from "react-icons/fa6";
 import Frame50 from '../../asset/Frame50.png'
 import { FaInstagram } from "react-icons/fa6";
 import { FaYoutube } from "react-icons/fa6";
+import { useNavigate } from 'react-router-dom';
+import CampaignDetail from '../Campaign/CampaignDetail'
 
 const data = [
     {
@@ -44,6 +46,13 @@ const data = [
   ];
 
 const CampaignList = () => {
+    const navigate = useNavigate();
+
+
+    const navigateToCampaignDetail = (name, description, image) => {
+      // Use history.push to navigate to the campaign detail page
+      navigate(`/campaignDetail`,  { state: { name, description, image } });
+    };
   return (
     <div>
         <div className=''>
@@ -69,7 +78,7 @@ const CampaignList = () => {
                 </div>
                 <div className='flex gap-3'>
                     <button className='bg-[#6B8DE6] text-white rounded-lg p-2'>PAYMENT RECORD</button>
-                    <button className='bg-[#0288D1] text-white rounded-lg p-2'>CREATE CAMPAIGN</button>
+                    <button className='bg-[#0288D1] text-white rounded-lg p-2'onClick={()=>navigate('/Createcampaign')}>CREATE CAMPAIGN</button>
                 </div>
             </div>
 
@@ -150,7 +159,7 @@ const CampaignList = () => {
                     <div className='flex gap-4'>
                         <div className='flex flex-col'>
                             {data?.map((data, index) => (
-                                <div key={index} className='flex gap-4 shadow-md p-2'>
+                                <div key={index} className='flex gap-4 shadow-md p-2' onClick={()=>CampaignDetail(data.name,data.description,data.image)}>
                                     <div className='p-2 flex items-center'><img src={data.img} alt="Frame50" className='w-[250px]'/></div>
                                     <div className='flex gap-2 flex-col p-2'>
                                         <p className='text-2xl font-bold text-black'>{data.name}</p>
@@ -162,7 +171,7 @@ const CampaignList = () => {
                                             </div>
                                             <div className='flex gap-4'>
                                                 <button className='text-[#6B8DE6] '>{data.analysis}</button>
-                                                <button className='bg-[#6B8DE6] rounded-lg p-2'>{data.report}</button>
+                                                <button className='bg-[#6B8DE6] rounded-lg p-2'onClick={()=>navigateToCampaignDetail(data.name, data.description, data.image)}>{data.report}</button>
                                             </div>
                                         </div>
                                     </div>
