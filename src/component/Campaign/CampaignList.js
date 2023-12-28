@@ -10,7 +10,9 @@ import Frame50 from '../../asset/Frame50.png'
 import { FaInstagram } from "react-icons/fa6";
 import { FaYoutube } from "react-icons/fa6";
 import { useNavigate } from 'react-router-dom';
-import CampaignDetail from '../Campaign/CampaignDetail'
+// import CampaignDetail from '../Campaign/CampaignDetail'
+import { useDispatch } from 'react-redux';
+import { setImage, setName, setpara } from '../../redux/slices/Campaign';
 
 const data = [
     {
@@ -53,6 +55,9 @@ const CampaignList = () => {
       // Use history.push to navigate to the campaign detail page
       navigate(`/campaignDetail`,  { state: { name, description, image } });
     };
+
+    const dispatch=useDispatch();
+
   return (
     <div>
         <div className=''>
@@ -159,7 +164,11 @@ const CampaignList = () => {
                     <div className='flex gap-4'>
                         <div className='flex flex-col'>
                             {data?.map((data, index) => (
-                                <div key={index} className='flex gap-4 shadow-md p-2' onClick={()=>CampaignDetail(data.name,data.description,data.image)}>
+                                <div key={index} className='flex gap-4 shadow-md p-2' onClick={()=>{
+                                     dispatch(setName(data.name))
+                                     dispatch(setpara(data.description))
+                                     dispatch(setImage(data.img))
+                                }}>
                                     <div className='p-2 flex items-center'><img src={data.img} alt="Frame50" className='w-[250px]'/></div>
                                     <div className='flex gap-2 flex-col p-2'>
                                         <p className='text-2xl font-bold text-black'>{data.name}</p>

@@ -1,19 +1,14 @@
 import React from 'react'
-import Navbar from '../common/Navbar'
+import { useSelector } from 'react-redux'
 import { FaSearch } from "react-icons/fa";
 import { FaArrowLeft } from "react-icons/fa";
-import { useLocation } from 'react-router-dom';
-
 
 const CampaignDetail = () => {
-    const location = useLocation();
-    const { name, description, image } = location.state || {};
-    console.log('Received data in CampaignDetail:', name, description, image);
-  return (
-    <div className=''>
-        <Navbar/>
 
-        <div className='flex justify-around mt-3'>
+    const{names,para,img}=useSelector((state)=>state.campaign)
+  return (
+    <div>
+      <div className='flex justify-around mt-3'>
             <p className='text-3xl font-bold'>CampaignDetail</p>
             <div className='flex items-center border'>
             <FaSearch /><input placeholder='Search' className=' px-5'></input>
@@ -33,13 +28,13 @@ const CampaignDetail = () => {
             </div>
         </div>
 
-        <div>
-            <h1>{name}</h1>
-            <p>{description}</p>
-            <img src={image} alt="Campaign Image" />
+        <div className='flex gap-3 ml-5'>
+            <img src={img} alt="Campaign Image" />
+            <div className='flex flex-col gap-2'>
+              <h1 className='text-2xl font-bold'>{names}</h1>
+              <p>{para}</p>
+            </div>
         </div>
-
-        <div></div>
     </div>
   )
 }

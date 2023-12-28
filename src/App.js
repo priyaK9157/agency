@@ -8,6 +8,7 @@ import CampaignList from './component/Campaign/CampaignList';
 import InfluencerDetail from './component/Influencer/InfluencerDetail';
 import Createcampaign  from './component/Campaign/Createcampaign';
 import Payment from './component/Payment/Payment'
+import CreatePlan from './component/Influencer/CreatePlan';
 import CampaignDetail from './component/Campaign/CampaignDetail';
 
 const App = () => {
@@ -18,10 +19,11 @@ const App = () => {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/home" element={<Home/>} />
         <Route path='/influencerPlan' element={<Influencer/>}/>
-        <Route path='/CampaignList' element={<CampaignList/>}/>
+        <Route path='/c' element={<CampaignList/>}/>
         <Route path='/influencerDetail' element={<InfluencerDetail/>}/>
         <Route path='/createcampaign' element={<Createcampaign/>}/>
         <Route path='/payment' element={<Payment/>}/>
+        <Route path='/createplan' element={<CreatePlan/>}/>
         <Route path='/campaignDetail' element={<CampaignDetail/>}/>
       </Routes>
     
