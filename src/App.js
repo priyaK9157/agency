@@ -6,6 +6,8 @@ import Home from './component/Home';
 import Influencer from './component/Influencer/Influencer';
 import CampaignList from './component/Campaign/CampaignList';
 import InfluencerDetail from './component/Influencer/InfluencerDetail';
+import CreatePlan from './component/Influencer/CreatePlan';
+import CampaignDetail from './component/Campaign/CampaignDetail';
 
 const App = () => {
   return (
@@ -15,8 +17,10 @@ const App = () => {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/home" element={<Home/>} />
         <Route path='/influencerPlan' element={<Influencer/>}/>
-        <Route path='/CampaignList' element={<CampaignList/>}/>
+        <Route path='/c' element={<CampaignList/>}/>
         <Route path='/influencerDetail' element={<InfluencerDetail/>}/>
+        <Route path='/createplan' element={<CreatePlan/>}/>
+        <Route path='/campaignDetail' element={<CampaignDetail/>}/>
       </Routes>
     
   );
