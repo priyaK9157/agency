@@ -7,7 +7,7 @@ import { MdFactCheck } from "react-icons/md";
 import signlogo from '../../asset/signlogo.png'
 const Navbar = () => {
   return (
-    <div className='flex justify-between items-center p-2 border max-w-[90%] shadow-md mx-auto rounded-full'>
+    <div className=' mt-5 flex justify-between items-center p-2 border max-w-[90%] shadow-md mx-auto rounded-full'>
     <div>
         <img src={signlogo} className='h-12'></img>
     </div>

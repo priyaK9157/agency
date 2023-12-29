@@ -9,7 +9,7 @@ import { FaMagnifyingGlass } from "react-icons/fa6";
 import Frame50 from '../../asset/Frame50.png'
 import { FaInstagram } from "react-icons/fa6";
 import { FaYoutube } from "react-icons/fa6";
-import { useNavigate } from 'react-router-dom';
+
 // import CampaignDetail from '../Campaign/CampaignDetail'
 import { useDispatch } from 'react-redux';
 import { setImage, setName, setpara } from '../../redux/slices/Campaign';
@@ -58,7 +58,6 @@ const CampaignList = () => {
     };
 
     const dispatch=useDispatch();
-    const navigate=useNavigate();
   return (
     <div>
         <div className=''>

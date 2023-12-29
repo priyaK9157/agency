@@ -1,8 +1,7 @@
 import React from 'react'
-import image1 from "../../../Assets/no-document-or-data-found-ui-illustration-design-free-vector.jpg"
 import {FaInstagram,FaYoutube} from "react-icons/fa"
 
-const Shortlishted = ({data}) => {
+const SharedInf = ({data}) => {
   return (
     <div className=' mt-4'>
           {
@@ -41,7 +40,7 @@ const Shortlishted = ({data}) => {
                  </div>
              ) : (
                 <div  className=' flex justify-center'>
-                       <img src={image1} width="300px"/>
+                      
                 </div>
              )
           }
@@ -49,4 +48,4 @@ const Shortlishted = ({data}) => {
   )
 }
 
-export default Shortlishted
+export default SharedInf
