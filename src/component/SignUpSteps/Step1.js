@@ -1,8 +1,10 @@
 import axios from 'axios';
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 
 const Step1 = () => {
    
+  const navigate=useNavigate();
   const[set,setState]=useState({
     username:'',
     CompanyEmail:'',
@@ -46,6 +48,7 @@ const Step1 = () => {
               "pan": ""
             },
            })
+        navigate('/signin')
       } catch(error){
           console.log("error",error.message)
       }

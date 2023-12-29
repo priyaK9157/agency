@@ -18,9 +18,9 @@ const App = () => {
       <Routes>
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/home" element={<Home/>} />
+        <Route path="/" element={<Home/>} />
         <Route path='/influencerPlan' element={<Influencer/>}/>
-        <Route path='/c' element={<CampaignList/>}/>
+        <Route path='/campaignlist' element={<CampaignList/>}/>
         <Route path='/influencerDetail' element={<InfluencerDetail/>}/>
         <Route path='/createcampaign' element={<Createcampaign/>}/>
         <Route path='/payment' element={<Payment/>}/>
