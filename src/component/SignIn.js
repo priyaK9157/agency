@@ -89,7 +89,7 @@ const SignIn = () => {
         <div className="mt-4 text-center">
           <button
             className="bg-blue-500 text-white px-60 py-2 rounded hover:bg-blue-600"
-            onClick={handleSignIn}
+            onClick={handleSignIn} 
           >
             SIGN IN
           </button>
