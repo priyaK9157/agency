@@ -72,7 +72,7 @@ const Createcampaign = () => {
         </div>
 
         <div className='flex w-15/20 mx-auto border border-pink-600'>
-          <div className='flex flex-col gap-3 p-3 ml-20'>
+          <div className='flex flex-col gap-3 p-3 ml-8'>
             <p>BASIC DETAILS</p>
             <p>PRODUCT DETAILS</p>
             <p>CAMPAIGN TYPE</p>
