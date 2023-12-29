@@ -1,10 +1,13 @@
 import React from 'react'
 import image1 from "../Assets/Screenshot 2023-12-25 112806.png"
 import Step1 from './SignUpSteps/Step1'
+import Navbar from './common/Navbar'
 const SignUp = () => {
   
   return (
-    <div className=' flex justify-center items-center h-screen gap-6 '>
+   <div>
+     <Navbar/>
+         <div className=' flex justify-center items-center h-screen gap-6 '>
            <div>
                   <img src={image1}/>
            </div>
@@ -12,6 +15,7 @@ const SignUp = () => {
                 <Step1 />
            </div>
     </div>
+   </div>
   )
 }
 
