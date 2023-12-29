@@ -24,7 +24,7 @@ const SignIn = () => {
     axios.post("https://agencyapi.getmentore.com/agent/auth/login", { email, password })
       .then(response => {
         console.log('Backend response:', response.data);
-        navigate('/home');
+        navigate('/');
       })
       .catch(error => {
         console.error('Error:', error.message);

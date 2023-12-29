@@ -14,6 +14,7 @@ import { FaYoutube } from "react-icons/fa6";
 import { useDispatch } from 'react-redux';
 import { setImage, setName, setpara } from '../../redux/slices/Campaign';
 import { useNavigate } from 'react-router-dom';
+import Navbar from '../common/Navbar';
 
 const data = [
     {
@@ -60,21 +61,9 @@ const CampaignList = () => {
     const dispatch=useDispatch();
   return (
     <div>
+    <Navbar/>
         <div className=''>
-            <div className='flex justify-between items-center p-2 border max-w-[90%] shadow-md mx-auto rounded-full'>
-            <div>
-                <img src={signlogo} className='h-12'></img>
-            </div>
-            <div className='flex gap-5'>
-                <p className='flex items-center text-lg font-semibold'><IoMdHome /> Home</p>
-                <p className='flex items-center text-lg text-[#6B8DE6] font-semibold'><MdFactCheck /> Campaign</p>
-            </div>
-            <div className='flex gap-5'>
-                <IoLogoWechat className='text-2xl text-[#6B8DE6]' />
-                <TbBellRinging2Filled className='text-2xl text-[#6B8DE6]' />
-                <FaUserCircle className='text-2xl' />
-            </div>
-            </div>
+            
 
             <div className='flex justify-around gap-4 p-4'>
                 <div className='font-bold text-2xl'>Campaign List</div>

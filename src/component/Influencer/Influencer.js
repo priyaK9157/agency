@@ -3,10 +3,12 @@ import React, { useEffect, useState } from 'react'
 import image1 from "../../Assets/49e58d5922019b8ec4642a2e2b9291c2.png"
 import {FaInstagram,FaYoutube} from "react-icons/fa"
 import Navbar from '../common/Navbar'
+import { useNavigate } from 'react-router-dom'
 const Influencer = () => {
    
     const token = localStorage.getItem('Token');
     const[data,setdata]=useState();
+    const navigate=useNavigate();
     async function getInfluencerPlan(){
         try{
             const data={
@@ -68,7 +70,9 @@ const Influencer = () => {
         <div className=' flex justify-around mt-10'>
               <p className=' text-2xl text-black  font-bold'>Influencer Plan</p>
               <input placeholder='search' className='h-[40px] w-[30rem] border border-slate-300 pl-2  outline-none'  />
-              <button  type="button" className="  rounded-xl ml-12 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium  text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+              <button  type="button" onClick={()=>{
+                  navigate('/createplan');
+              }} className="  rounded-xl ml-12 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium  text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
                   Create Plan
               </button>
         </div>
@@ -88,7 +92,9 @@ const Influencer = () => {
                                             </div>
                                             <div className='flex gap-4'>
                                                
-                                                <button className=' border border-[#6B8DE6] px-3 rounded-lg'>{data.report}</button>
+                                                <button className=' border border-[#6B8DE6] px-3 rounded-lg' onClick={()=>{
+                                                     navigate('/influencerDetail');
+                                                }}>{data.report}</button>
                                             </div>
                                         </div>
                                     </div>

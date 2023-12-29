@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Navbar from '../common/Navbar'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 const CreatePlan = () => {
 
   const[set,setState]=useState({
@@ -14,7 +15,7 @@ const CreatePlan = () => {
   const [selectedCheckbox, setSelectedCheckbox] = useState('');
   const[selectedplatform,SetselectedPlatform]=useState('');
   const[selectedLang,setSelectedLanguage]=useState('')
-   
+   const navigate=useNavigate();
 
   const handleLanguageChange = (name) => {
     setSelectedLanguage(name);
@@ -62,8 +63,9 @@ const CreatePlan = () => {
                 Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ODkyYjU5NDYwYjkyODZkMTc3N2M1OCIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTcwMzQ4ODM2OH0.xu5k8Jc9TKkrRrr4vcQbtdZK1HwI2MGVmT783zZPELM`, 
      }})
 
-    
+       
         console.log("res",response);
+        navigate('/onboard');
      
      } catch(error){
            console.log("error",error.message)
