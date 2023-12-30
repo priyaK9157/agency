@@ -59,8 +59,8 @@ const Step1 = () => {
   
   return (
     <div>
-        <h1 className="text-black bg-opacity-70 font-roboto text-24 font-medium leading-normal mt-4 ml-14">Echio</h1>
-        <p className='mt-1 ml-14'>Sign Up</p>
+        <h1 className="text-black bg-opacity-70 font-roboto text-24 font-medium leading-normal mt-4 ml-14 text-2xl">Echio</h1>
+        <p className='mt-1 ml-14 text-xl'>Sign Up</p>
         <p className=' text-slate-600 mt- ml-14 mb-2'>to access Echio Home</p>
 
         {/*company name and company email*/}

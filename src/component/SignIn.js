@@ -7,6 +7,9 @@ import AppleIcon from '../asset/Apple.png';
 import officeIcon from '../asset/office.png';
 import { useNavigate } from 'react-router-dom';
 import Navbar from './common/Navbar';
+import { FaGoogle } from "react-icons/fa";
+import { FaApple } from "react-icons/fa";
+import { SiMicrosoftoffice } from "react-icons/si";
 
 const SignIn = () => {
   const [email, setEmail] = useState('');
@@ -107,11 +110,16 @@ const SignIn = () => {
 
             <div className="mt-4 flex items-center gap-4">
               <div className="border p-2 rounded-lg shadow-md flex items-center gap-2">
-                <img src={GoogleIcon} alt="Google" className="w-8 h-8" />
-                <span className="text-sm">Google</span>
+              <a href="https://www.google.com" target="_blank" rel="noopener noreferrer" className='flex gap-1'>
+                <FaGoogle className="text-red-500 flex items-center" /><span className="text-sm">Google</span>
+              </a>
               </div>
-              <img src={AppleIcon} alt="Apple" className="w-8 h-8 bg-black rounded-full" />
-              <img src={officeIcon} alt="Office" className="w-8 h-8 border" />
+              <a href="https://www.apple.com" target="_blank" rel="noopener noreferrer">
+                <FaApple className="text-2xl" />
+              </a>
+              <a href="https://www.office.com" target="_blank" rel="noopener noreferrer">
+                <SiMicrosoftoffice className="text-2xl text-red-500" />
+              </a>
             </div>
           </div>
         </div>

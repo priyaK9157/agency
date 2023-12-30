@@ -65,7 +65,7 @@ const CampaignList = () => {
         <div className=''>
             
 
-            <div className='flex justify-around gap-4 p-4'>
+            <div className='flex justify-around gap-4 p-4 '>
                 <div className='font-bold text-2xl'>Campaign List</div>
                 <div className='flex border gap-3 items-center'><FaMagnifyingGlass />
                     <input placeholder='Search'></input>

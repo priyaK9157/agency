@@ -8,10 +8,10 @@ const SignUp = () => {
    <div>
      <Navbar/>
          <div className=' flex justify-center items-center h-screen gap-6 '>
-           <div>
+           <div className='mt-10 ml-14'>
                   <img src={image1}/>
            </div>
-           <div className='   h-[590px] w-[672px]'>
+           <div className='h-[590px] w-[672px] mt-20 max-w-[70%]'>
                 <Step1 />
            </div>
     </div>

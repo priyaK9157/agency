@@ -11,6 +11,7 @@ import Payment from './component/Payment/Payment'
 import CreatePlan from './component/Influencer/CreatePlan';
 import CampaignDetail from './component/Campaign/CampaignDetail';
 import InfluencerOnboard from './component/Influencer/InfluencerOnboard';
+import Onboarding from './component/Echio/Onboarding';
 
 const App = () => {
   return (
@@ -27,6 +28,7 @@ const App = () => {
         <Route path='/createplan' element={<CreatePlan/>}/>
         <Route path='/campaignDetail' element={<CampaignDetail/>}/>
         <Route path='/onboard' element={<InfluencerOnboard/>}/>
+        <Route path='/Onboarding' element={<Onboarding/>}/>
       </Routes>
     
   );
