@@ -1,0 +1,27 @@
+/* InfluencerDetail.css */
+.modal-open {
+    filter: blur(5px); /* Adjust the blur intensity as needed */
+    pointer-events: none;
+  }
+  
+  .modal-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-content {
+    background-color: #fff; /* Adjust the background color as needed */
+    padding: 60px;
+    width: 60%;
+    border-radius: 8px;
+    z-index: 1000;
+    pointer-events: auto;
+  }
+  
