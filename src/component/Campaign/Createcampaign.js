@@ -2,6 +2,8 @@ import React, { useRef, useCallback, useState } from 'react';
 import Navbar from '../common/Navbar';
 import { useDropzone } from 'react-dropzone';
 import FramePic from '../../asset/FramePic.png';
+import { FaArrowLeft } from "react-icons/fa";
+
 
 const validFileTypes = ['image/svg+xml', 'image/png', 'image/jpeg', 'image/gif', 'video/*'];
 const maxFileSize = 3 * 1024 * 1024; // 3MB
@@ -58,52 +60,49 @@ const Createcampaign = () => {
 
   return (
     <div>
+      <Navbar />
       <div className='flex flex-col gap-4 '>
-        <Navbar />
 
         <div>
-          <button className='ml-20'>Back</button>
+          <button className='ml-20 p-6 flex items-center text-[#6B8DE6]'><FaArrowLeft />Back</button>
         </div>
 
-        <div className='text-2xl font-bold ml-20'>
+        <div className='text-2xl font-bold ml-20 p-6'>
           Create Campaign
         </div>
 
         <div className='flex w-15/20 mx-auto border border-pink-600'>
-          <div className='flex flex-col gap-3 p-3'>
+          <div className='flex flex-col gap-3 p-3 ml-8'>
             <p>BASIC DETAILS</p>
             <p>PRODUCT DETAILS</p>
             <p>CAMPAIGN TYPE</p>
-        </div>
+          </div>
 
-          <div className='border border-black p-7'>
-            <p>Campaign Image</p>
+          <div className='border border-black'>
+            <p className='p-3'>Campaign Image</p>
+              <div className='border border-black'>
+                <form action="/upload" method="post" encType="multipart/form-data">
+                  <label htmlFor="fileInput" className="cursor-pointer">
+                    {selectedFile && selectedFile.type.startsWith('image/') ? (
+                      <img src={URL.createObjectURL(selectedFile)} alt="Upload" onClick={handleImageClick} />
+                    ) : (
+                      <FilePreview file={selectedFile} />
+                    )}
+                    <img src={FramePic} alt="Upload" onClick={handleImageClick} />
+                  </label>
+                  <input
+                    type="file"
+                    id="fileInput"
+                    name="picture"
+                    accept={validFileTypes.join(',')}
+                    style={{ display: 'none' }}
+                    ref={fileInputRef}
+                    onChange={handleFileChange}
+                  />
+                </form>
+
             
-
-<div className='border border-black'>
-  <p>Campaign Image</p>
-  <form action="/upload" method="post" encType="multipart/form-data">
-    <label htmlFor="fileInput" className="cursor-pointer">
-      {selectedFile && selectedFile.type.startsWith('image/') ? (
-        <img src={URL.createObjectURL(selectedFile)} alt="Upload" onClick={handleImageClick} />
-      ) : (
-        <FilePreview file={selectedFile} />
-      )}
-      <img src={FramePic} alt="Upload" onClick={handleImageClick} />
-    </label>
-    <input
-      type="file"
-      id="fileInput"
-      name="picture"
-      accept={validFileTypes.join(',')}
-      style={{ display: 'none' }}
-      ref={fileInputRef}
-      onChange={handleFileChange}
-    />
-  </form>
-
-  {/* ... rest of the code ... */}
-</div>
+              </div>
 
 
 
