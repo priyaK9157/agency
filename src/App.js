@@ -13,6 +13,7 @@ import CampaignDetail from './component/Campaign/CampaignDetail';
 import InfluencerOnboard from './component/Influencer/InfluencerOnboard';
 import Onboarding from './component/Echio/Onboarding';
 import ReachOut from './component/Influencer/ReachOut';
+import MyPlan from './component/Campaign/MyPlan';
 
 const App = () => {
   return (
@@ -31,6 +32,7 @@ const App = () => {
         <Route path='/onboard' element={<InfluencerOnboard/>}/>
         <Route path='/Onboarding' element={<Onboarding/>}/>
         <Route path='/ReachOut' element={<ReachOut/>}/>
+        <Route path='/myplan' element={<MyPlan/>}/>
       </Routes>
     
   );
