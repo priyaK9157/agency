@@ -59,7 +59,7 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <CChart
+            {/* <CChart
                 type="doughnut"
                 data={{
                     labels: ['VueJs', 'EmberJs', 'ReactJs', 'AngularJs'],
@@ -79,7 +79,7 @@ const Home = () => {
                     }
                     },
                 }}
-                />
+                /> */}
             {/* <div>
                 <img src={block1}></img>
             </div> */}

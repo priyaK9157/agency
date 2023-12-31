@@ -223,7 +223,7 @@ const InfluencerDetail = () => {
                       <div className=' modal-background'>
                           <div className='modal-content'>
                           <IoIosCloseCircle className=' text-2xl -translate-y-6 cursor-pointer'  onClick={()=> setReachout(false)}/>
-                              <p className=' text-black font-semibold text-lg'>Reach Out Influencers</p>
+                              <p className=' text-black font-semibold text-lg'>Negotiate Influencers </p>
 
                               <div>
                                    <div className=' mt-2 flex gap-44 p-1 rounded-xl   w-[50rem]  bg-slate-300'>
@@ -233,34 +233,34 @@ const InfluencerDetail = () => {
                                    </div>
                                    <div className='  flex mt-5 gap-44'>
                                         <p className=' ml-3 translate-x-6 flex  justify-center '>Jeremy Jane</p>
-                                        <div className=' border border-pink-400  '>
+                                        <div className='   w-[50rem]  text-slate-500  flex flex-col gap-3 '>
                                              <div  className=' flex justify-between'>
                                                   <p>Reel</p>
                                                   <p>$800</p>
                                              </div>
-                                             <div>
+                                             <div  className=' flex justify-between'>
                                                   <p>Stories</p>
                                                   <p>$800</p>
                                              </div>
-                                             <div>
+                                             <div  className=' flex justify-between'>
                                                   <p>Integrated Video</p>
                                                   <p>$800</p>
                                              </div>
-                                             <div>
+                                             <div  className=' flex justify-between'>
                                                   <p>Dedivated Video</p>
                                                   <p>$800</p>
                                              </div>
-                                             <div>
+                                             <div  className=' flex justify-between'>
                                                   <p>Shorts</p>
                                                   <p>$800</p>
                                              </div>
                                         </div>
-                                        <div>
-                                              <input placeholder='TYPE A PRICE'/>
-                                              <input placeholder='TYPE A PRICE'/>
-                                              <input placeholder='TYPE A PRICE'/>
-                                              <input placeholder='TYPE A PRICE'/>
-                                              <input placeholder='TYPE A PRICE'/>
+                                        <div className=' -translate-x-28 flex flex-col gap-2'>
+                                              <input placeholder='          TYPE A PRICE' className=' border border-slate-400 p-1 rounded-lg  outline-none '/>
+                                              <input placeholder='          TYPE A PRICE' className=' border border-slate-400 p-1 rounded-lg  outline-none'/>
+                                              <input placeholder='          TYPE A PRICE' className=' border border-slate-400 p-1 rounded-lg  outline-none'/>
+                                              <input placeholder='          TYPE A PRICE' className=' border border-slate-400 p-1 rounded-lg  outline-none'/>
+                                              <input placeholder='          TYPE A PRICE' className=' border border-slate-400 p-1 rounded-lg  outline-none'/>
                                         </div>
                                    </div>
                               </div>

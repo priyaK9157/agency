@@ -1,16 +1,92 @@
-import React, { useState, useEffect } from 'react';
-import { FaSearch, FaRegCopy } from 'react-icons/fa';
-import Navbar from '../common/Navbar';
-import user from '../../asset/user.png';
-import EchOnboard from '../Influencer/TABS/EchOnboard';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import React,{useState} from 'react'
+import {useNavigate} from "react-router-dom"
+const Left = () => {
 
 
+  const [data, setdata] = useState([]); // Updated to an array
+  const navigate =useNavigate();
+  const [searchValue, setSearchValue] = useState('');
+  const [popularityFilters, setPopularityFilters] = useState({
+    nano: false,
+    micro: false,
+    macro: false,
+    custom: false,
+  });
+  const [sliderValue, setSliderValue] = useState(0);
+  const [campaignPreferences, setCampaignPreferences] = useState({
+    barter: false,
+    paid: false,
+  });
+  const [platformFilters, setPlatformFilters] = useState({
+    youtube: false,
+    instagram: false,
+  });
+  const [engagementRate, setEngagementRate] = useState(0);
+  const [rate, setRate] = useState(0);
+  const [categories, setCategories] = useState('');
+  const [filteredData, setFilteredData] = useState([]);
 
-<div className='shadow-md'>
+    const handleSliderChange = (event) => {
+        const value = parseInt(event.target.value);
+        setSliderValue(value);
+        filterData();
+      };
+
+      const filterData = () => {
+        const filtered = data
+          .filter((item) => item.name.toLowerCase().includes(searchValue.toLowerCase()))
+          .filter((item) => {
+            if (
+              popularityFilters.nano &&
+              item.popularity >= 1000 &&
+              item.popularity <= 9000
+            ) {
+              return true;
+            }
+            if (
+              popularityFilters.micro &&
+              item.popularity >= 100000 &&
+              item.popularity <= 999000
+            ) {
+              return true;
+            }
+            if (
+              popularityFilters.macro &&
+              item.popularity >= 1000000 &&
+              item.popularity <= 10000000
+            ) {
+              return true;
+            }
+            return false;
+          })
+          .filter((item) => {
+            if (campaignPreferences.barter ) {
+              return true;
+            }
+            if (campaignPreferences.paid) {
+              return true;
+            }
+            return false;
+          })
+          .filter((item) => {
+            if (platformFilters.youtube ) {
+              return true;
+            }
+            if (platformFilters.instagram ) {
+              return true;
+            }
+            return false;
+          })
+          .filter((item) => item.engagementRate >= engagementRate)
+          .filter((item) => item.rate >= rate)
+          .filter((item) => item.categories.includes(categories));
+    
+        setFilteredData(filtered);
+      };
+  return (
+    <div className='shadow-md'>
                     <div className='ml-16 p-4'>
-                        <p>Popularity</p>
+                        <p className=' text-black font-semibold uppercase'>Popularity</p>
                         <div className="flex items-center space-x-2 p-1">
                             <input type="checkbox" id="active" />
                             <label htmlFor="active">Nano(1k-9k)</label>
@@ -43,7 +119,7 @@ import { useNavigate } from 'react-router-dom';
                         </div>
                     </div>
                     <div className='ml-16 p-4'>
-                        <p>Campaign Preference</p>
+                        <p className=' text-black font-semibold uppercase'>Campaign Preference</p>
                         <div className="flex items-center space-x-2 p-1">
                             <input type="checkbox" id="active" />
                             <label htmlFor="active">Barter</label>
@@ -54,7 +130,7 @@ import { useNavigate } from 'react-router-dom';
                         </div>
                     </div>
                     <div className='ml-16 p-4 '>
-                        <p>Platform</p>
+                        <p className=' text-black font-semibold uppercase'>Platform</p>
                         <div className="flex items-center space-x-2 p-1">
                             <input type="checkbox" id="active" />
                             <label htmlFor="active">YouTube</label>
@@ -65,7 +141,7 @@ import { useNavigate } from 'react-router-dom';
                         </div>
                     </div>
                     <div className='ml-16 p-4'>
-                        <p className='uppercase'>Engagement rate</p>
+                        <p className=' text-black font-semibold uppercase'>Engagement rate</p>
                         <div className="slider-container">
                             <input
                                 type="range"
@@ -82,7 +158,7 @@ import { useNavigate } from 'react-router-dom';
                         </div>
                     </div>
                     <div className='ml-16 p-4'>
-                        <p className='uppercase'>Rate</p>
+                        <p className=' text-black font-semibold uppercase'>Rate</p>
                         <div className="slider-container">
                             <input
                                 type="range"
@@ -99,7 +175,7 @@ import { useNavigate } from 'react-router-dom';
                         </div>
                     </div>
                     <div className='ml-16 p-4 '>
-                        <p>Categories</p>
+                        <p className=' text-black font-semibold uppercase'>Categories</p>
                         <div className="mt-4 w-full">
                             <fieldset className='border'>
                                 <legend className="text-sm font-semibold">Search Category</legend>
@@ -132,3 +208,8 @@ import { useNavigate } from 'react-router-dom';
                         </div>
                     </div>
                 </div>
+  )
+}
+
+export default Left
+
