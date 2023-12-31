@@ -7,7 +7,7 @@ const MyPlan = () => {
   return (
     <div className=' mt-5'>
        <Navbar/>
-        <div className=' mt-3 flex justify-around'>
+       <div className=' mt-3 flex justify-around'>
              <p className=' text-2xl font-semibold'>Influencer List</p>
              <input placeholder=' search' className=' border border-slate-300 w-[30%] rounded-md p-2 outline-none'/>
              <div className=' flex gap-3'>
