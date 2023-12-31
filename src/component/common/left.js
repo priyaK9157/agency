@@ -54,10 +54,10 @@ const Left = () => {
               popularityFilters.macro &&
               item.popularity >= 1000000 &&
               item.popularity <= 10000000
-            ) {
-              return true;
-            }
-            return false;
+              ) {
+                return true;
+              }
+              return false;
           })
           .filter((item) => {
             if (campaignPreferences.barter ) {
