@@ -2,11 +2,13 @@ import React from 'react';
 import { FaArrowTrendUp, FaArrowTrendDown } from 'react-icons/fa6';
 import { Pie } from 'react-chartjs-2'; // Updated import statement
 import Navbar from './common/Navbar';
-import { FaArrowTrendDown } from "react-icons/fa6";
 import block1 from '../asset/Block1.jpg'
 import { Doughnut } from 'react-chartjs-2';
 import image1 from "../Assets/Screenshot 2023-12-31 102305.png"
 import { PieChart } from '@mui/x-charts/PieChart';
+import Frame19 from '../asset/Frame19.png'
+import Frame20 from '../asset/Frame20.png'
+
 const Home = () => {
     const testData = [
         { label: 'United States  38.6%', value: 38.6, color: '#6B8DE6' },
@@ -89,7 +91,7 @@ const Home = () => {
                 </div>
             </div>
                  
-            <div className=' flex justify-around items-center mx-auto w-10/12   gap-10 '>
+            <div className=' flex justify-around items-center mx-auto w-10/12 gap-60 '>
                        <div className=' translate-x-20 translate-y-6'>
                              <img src={image1} width="760px" height="246px"/>
                        </div>
@@ -107,11 +109,9 @@ const Home = () => {
                                 width={200}
                                 height={200}
                                
-                            />
-                      
+                            />   
             </div>
         </div>
-      </div>
     </div>
   );
 };
