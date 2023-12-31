@@ -102,7 +102,7 @@ const CampaignList = () => {
 
                         <div className="flex items-center space-x-2">
                             <input type="checkbox" id="active" />
-                            <label htmlFor="active">YouTube</label>
+                            <label htmlFor="">YouTube</label>
                         </div>
 
                         <div className="flex items-center space-x-2">
