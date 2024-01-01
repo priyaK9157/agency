@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Navbar from '../common/Navbar'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import { setAgency } from '../../redux/slices/Id'
 const CreatePlan = () => {
 
   const[set,setState]=useState({
@@ -50,25 +51,28 @@ const CreatePlan = () => {
          const response=await axios.post("https://agencyapi.getmentore.com/groups/create",{
              "name":name,
              "description":description,
-             "category":category,
+             "category":"FINANCE_AND_INVESTMENT",
            
             "language": [
                 language
               ],
               "platforms": [
-                platforms
+                platforms.toUpperCase()
               ]
          },{
             headers: {
-                Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ODkyYjU5NDYwYjkyODZkMTc3N2M1OCIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTcwMzQ4ODM2OH0.xu5k8Jc9TKkrRrr4vcQbtdZK1HwI2MGVmT783zZPELM`, 
+                Authorization: `Bearer ${token}`, 
      }})
 
        
         console.log("res",response);
+        if(response){
+            setAgency(response?.data?.data?.agencyId)
+        }
         navigate('/onboard');
      
      } catch(error){
-           console.log("error",error.message)
+           console.log("error",error)
      }
    }
   return (

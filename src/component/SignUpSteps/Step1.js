@@ -31,26 +31,21 @@ const Step1 = () => {
  async function signUp(){
       try{
         const types=Otp.toString();
-         const typesss=typeof types
        
            const  response=await axios.post("https://agencyapi.getmentore.com/agent/auth/signup",{
-            otp:typesss,
+            otp:types,
             email:CompanyEmail,
             password:Password,
              name:username,
              "agency": {
-              "name": "",
-              "logo": "",
-              "description": "",
-              "website": "",
+              "name": "echio",
               "category": "Finance and Investment",
-              "gst": "",
-              "pan": ""
+             
             },
            })
         navigate('/signin')
       } catch(error){
-          console.log("error",error.message)
+          console.log("error",error)
       }
   }
   const{username,CompanyEmail,Otp,PhoneNumber,Designation,Password}=set;

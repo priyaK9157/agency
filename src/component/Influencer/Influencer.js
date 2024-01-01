@@ -13,14 +13,19 @@ const Influencer = () => {
         try{
             const data={
                  "filters": {
-                    "name": "none"
+                  
                   },
                  page:1,
                  pageSize:1
             }
-             const response=await axios.post("https://agencyapi.getmentore.com/groups/list",data,token)
+            const response=await axios.post("https://agencyapi.getmentore.com/groups/list",data,{
+                headers: {
+                Authorization: `Bearer ${token}`,
+                }
+            })
+             console.log("res",response)
              if(response){
-                 setdata(response?.data?.results);
+                 setdata(response?.data?.data?.results);
              }
         } catch(error){
             console.log("error",error.message)
@@ -76,9 +81,9 @@ const Influencer = () => {
                   Create Plan
               </button>
         </div>
-        {data1 ? (
+        {data?.length>=1 && data[0]?.name!=='string'  ? (
              <div className=' mt-10'>
-             {data1?.map((data, index) => (
+             {data?.map((data, index) => (
                                 <div key={index} className='flex gap-3 w-11/12 justify-center mx-auto'>
                                   
                                     <div className=' gap-3'>
@@ -87,8 +92,16 @@ const Influencer = () => {
                                         <button className=' mt-4 bg-[#6B8DE6] bg-opacity-20 p-1 rounded-md px-2  text-[#6B8DE6]'>50+ Influencer</button>
                                         <div className='flex justify-between'>
                                             <div className='flex gap-4   py-5'>
-                                                <button className='flex items-center  gap-3'><FaInstagram  className=' text-2xl text-[#D800B9]'/>{data.instagram}</button>
-                                                <button className='flex items-center gap-3'><FaYoutube className='text-2xl text-[#FF0000] ' />{data.youtube}</button>
+                                                <div>
+                                                     {
+                                                         data.platforms.map((data,index)=>(
+                                                             <div key={index}>
+                                                                <div>{data}</div>
+                                                             </div>
+                                                         ))
+                                                     }
+                                                </div>
+                                               
                                             </div>
                                             <div className='flex gap-4'>
                                                

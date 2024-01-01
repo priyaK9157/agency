@@ -9,27 +9,26 @@ const validFileTypes = ['image/svg+xml', 'image/png', 'image/jpeg', 'image/gif',
 const maxFileSize = 3 * 1024 * 1024; // 3MB
 
 const FilePreview = ({ file }) => {
-  if (!file) {
+  if (!file || !file.type) {
     return null;
   }
 
-  if (file.type.startsWith('image/')) {
-    return <img src={URL.createObjectURL(file)} alt="Upload" />;
-  }
-
   if (file.type.startsWith('video/')) {
-    return <video width="320" height="240" controls>
-      <source src={URL.createObjectURL(file)} type={file.type} />
-    </video>;
+    return (
+      <video width="320" height="240" controls>
+        <source src={URL.createObjectURL(file)} type={file.type} />
+      </video>
+    );
   }
 
   return null;
 };
 
+
 const Createcampaign = () => {
   const fileInputRef = useRef(null);
   const [selectedFile, setSelectedFile] = useState(null);
-
+  const[file,setfile]=useState(null)
   const onDrop = useCallback((acceptedFiles) => {
     const file = acceptedFiles[0];
     if (file) {
@@ -54,7 +53,7 @@ const Createcampaign = () => {
     const file = e.target.files[0];
     if (file) {
       console.log('File selected:', file);
-      setSelectedFile(file);
+      setfile(file);
     }
   };
 
@@ -83,13 +82,14 @@ const Createcampaign = () => {
               <div className='border border-black'>
                 <form action="/upload" method="post" encType="multipart/form-data">
                   <label htmlFor="fileInput" className="cursor-pointer">
-                    {selectedFile && selectedFile.type.startsWith('image/') ? (
+                    
                       <img src={URL.createObjectURL(selectedFile)} alt="Upload" onClick={handleImageClick} />
-                    ) : (
-                      <FilePreview file={selectedFile} />
-                    )}
+                  
+                     
+                
                     <img src={FramePic} alt="Upload" onClick={handleImageClick} />
                   </label>
+                  <FilePreview file={file} />
                   <input
                     type="file"
                     id="fileInput"
